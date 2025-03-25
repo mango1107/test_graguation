@@ -11,12 +11,33 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home Page'),
         centerTitle: true,
+      //   leading: IconButton(
+      //     icon: const Icon(Icons.arrow_back), // 這裡是返回按鈕
+      //     onPressed: () {
+      //       Navigator.pushNamed(context, '/proflie'); // 跳轉到 LoginPage
+      //     },
+      //   ),
+      // ),
+        //左上角按鈕(leading)
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back), // 這裡是返回按鈕
-          onPressed: () {
-            Navigator.pushNamed(context, '/clip'); // 跳轉到 LoginPage
+          icon: const Icon(Icons.arrow_back),
+          onPressed: (){
+    //這裡使用pushNamed 前往ClipPage
+    Navigator.pushNamed(context, '/clip');
+
           },
         ),
+    // 一般首頁不會放「返回箭頭」，
+    // 這裡可以放一個 IconButton 來「前往」ProfilePage，
+    // 但圖示就可以改成其他，例如 account_circle。
+    actions: [
+      IconButton(
+    icon:const Icon(Icons.account_circle),
+    onPressed: (){
+      Navigator.pushNamed(context, '/profile');
+    },
+    ),
+    ],
       ),
       body: ListView.builder(
         itemCount: 10,
@@ -76,9 +97,11 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 10), // 調整此數值讓按鈕更低
         child: FloatingActionButton(
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('新增全新項目')),
-            );
+            // 修改成點擊後跳轉到 Editpage
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   const SnackBar(content: Text('新增全新項目')),
+            // );
+            Navigator.pushNamed(context, '/edit');
           },
           tooltip: 'Add',
           backgroundColor: Colors.white,

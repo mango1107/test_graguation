@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'page/home_page.dart';
 //import 'page/login_page.dart';
 import 'page/clip_page.dart';
+import 'dart:ui';
+import 'page/profile_page.dart';
+import 'page/edit_page.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -28,6 +31,8 @@ class MyApp extends StatelessWidget {
         //'/login': (context) => const LoginPage(),  //暫時先不用，因為我們討論說只有一個客戶
         '/clip': (context) => const ClipPage(),
         //'/editor': (context) => const VideoEditor(videoPath: '',),
+        '/profile':(context) => const ProfilePage(),
+        '/edit':(context) => const EditPage(),
       },
     );
   }
